@@ -2,16 +2,28 @@
   "name": "mcp-weather-server",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc && nodemon --watch src --ext ts --exec \"tsc && node build/index.js\"",
+    "dev:watch": "tsc --watch",
+    "clean": "rm -rf build",
+    "mcp": "tsc && node build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "description": "",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.2",
+    "nodemon": "^3.1.10",
+    "tsc": "^2.0.4",
+    "typescript": "^5.9.2",
+    "winston": "^3.17.0",
     "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1"
   }
 }
